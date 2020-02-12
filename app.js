@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const daemon = require('daemon');
 const mongoose = require('mongoose');
+const config = require('./configs/config')
+const db = require('./configs/config').database
 //Import custom modules
 
 //New Express App
@@ -12,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 //Load routes
 app.use(bodyParser.json());
-app.use(config.API_PATH, routes);
+// app.use(config.API_PATH, routes);
 
 mongoose.connect(db, {
     useNewUrlParser: true,
